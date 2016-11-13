@@ -1,0 +1,5 @@
+node_modules
+dist
+aot
+build/*
+!build/index.html
