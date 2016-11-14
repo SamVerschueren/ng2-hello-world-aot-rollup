@@ -12,12 +12,13 @@
     "clean": "rm -rf dist && rm -rf aot && cd build && find . ! -name 'index.html' -type f -exec rm -f {} + && cd ..",
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "lite": "lite-server",
-    "build.compile": "ngc -p tsconfig-aot.json",
+    "build.aot": "ngc -p tsconfig-aot.json",
+    "build.compile": "tsc -p tsconfig.json",
     "build.shims": "uglifyjs node_modules/core-js/client/shim.js node_modules/zone.js/dist/zone.js node_modules/reflect-metadata/Reflect.js -m -o build/shims.js",
     "build.rollup": "rollup -c rollup-config.js -o build/main.es2015.js",
     "build.es5": "tsc --target es5 --allowJs build/main.es2015.js --out build/main.js",
     "build.minify": "uglifyjs build/main.js --screw-ie8 --compress --mangle --output build/main.min.js",
-    "build": "npm run clean && npm run build.compile && npm run build.shims && npm run build.rollup && npm run build.es5 && npm run build.minify"
+    "build": "npm run clean && npm run build.aot && npm run build.compile && npm run build.shims && npm run build.rollup && npm run build.es5 && npm run build.minify"
   },
   "dependencies": {
     "@angular/common": "^2.1.1",
