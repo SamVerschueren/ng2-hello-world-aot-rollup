@@ -13,7 +13,7 @@ class RollupNG2 {
 const rollupNG2 = () => new RollupNG2();
 
 export default {
-	entry: 'dist/app/main.prod.js',
+	entry: 'dist/main.prod.js',
 	sourceMap: true,
 	treeshake: true,
 	moduleName: 'main',

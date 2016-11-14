@@ -29,12 +29,7 @@
   ],
 	"exclude": [
 		"node_modules",
-		"aot",
 		"build",
 		"dist"
-	],
-  "angularCompilerOptions": {
-    "genDir": "aot",
-    "skipMetadataEmit" : true
-  }
+	]
 }

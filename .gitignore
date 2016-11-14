@@ -3,3 +3,4 @@ dist
 aot
 build/*
 !build/index.html
+app/*.ngfactory.ts
