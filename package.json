@@ -9,12 +9,13 @@
     "url": "github.com/SamVerschueren"
   },
   "scripts": {
+    "clean": "rm -rf dist && rm -rf aot && cd build && find . ! -name 'index.html' -type f -exec rm -f {} + && cd ..",
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "lite": "lite-server",
     "build.compile": "ngc -p tsconfig-aot.json",
     "build.shims": "uglifyjs node_modules/core-js/client/shim.js node_modules/zone.js/dist/zone.js node_modules/reflect-metadata/Reflect.js -m -o build/shims.js",
     "build.rollup": "rollup -c rollup-config.js",
-    "build": "npm run build.compile && npm run build.shims && npm run build.rollup"
+    "build": "npm run clean && npm run build.compile && npm run build.shims && npm run build.rollup"
   },
   "dependencies": {
     "@angular/common": "~2.1.1",
