@@ -1,21 +1,29 @@
-import rollup from 'rollup'
-import nodeResolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs';
-import uglify from 'rollup-plugin-uglify'
+import nodeResolve from 'rollup-plugin-node-resolve';
+
+class RollupNG2 {
+	resolveId(id, from) {
+		if (id.startsWith('rxjs/')) {
+			return `${__dirname}/node_modules/rxjs-es/${id.replace('rxjs/', '')}.js`;
+        }
+
+		return undefined;
+	}
+}
+
+const rollupNG2 = () => new RollupNG2();
 
 export default {
 	entry: 'dist/app/main.prod.js',
-	dest: 'build/main.js',
-	sourceMap: false,
+	sourceMap: true,
+	treeshake: true,
+	moduleName: 'main',
 	format: 'iife',
-	plugins: [
+    plugins: [
+		rollupNG2(),
 		nodeResolve({
 			jsnext: true,
-			module: true
-		}),
-		commonjs({
-			include: 'node_modules/rxjs/**',
-		}),
-		uglify()
+            module: true,
+			main: true
+        })
 	]
 }
