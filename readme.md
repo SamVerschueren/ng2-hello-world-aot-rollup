@@ -1,5 +1,8 @@
 # ng2-hello-world-aot-rollup
 
+[![Build Status: Linux](https://travis-ci.org/SamVerschueren/ng2-hello-world-aot-rollup.svg?branch=master)](https://travis-ci.org/SamVerschueren/ng2-hello-world-aot-rollup) [![Build status: Windows](https://ci.appveyor.com/api/projects/status/0o3jy3i2u6xs7h1d/branch/master?svg=true)](https://ci.appveyor.com/project/SamVerschueren/ng2-hello-world-aot-rollup/branch/master)
+
+
 > Angular2 Hello World treeshaked AoT application
 
 
